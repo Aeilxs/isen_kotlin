@@ -51,6 +51,9 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // one line here to add retrofit ?
     // implementation("com.google.code.gson:gson:2.12.1")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

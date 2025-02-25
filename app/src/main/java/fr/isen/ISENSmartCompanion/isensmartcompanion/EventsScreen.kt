@@ -14,35 +14,55 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import fr.isen.ISENSmartCompanion.isensmartcompanion.model.Event
+import fr.isen.ISENSmartCompanion.isensmartcompanion.model.EventDto
+import kotlinx.coroutines.launch
 
 @Composable
-fun EventsScreen(navController: NavController) {
-    val events = listOf(
-        Event(1, "Soirée BDE", "Une soirée animée par le BDE", "2025-03-01", "Campus ISEN", "Fête"),
-        Event(2, "Gala annuel", "Le grand gala de fin d'année", "2025-06-15", "Salle des fêtes", "Gala"),
-        Event(3, "Journée de cohésion", "Activités en plein air", "2025-04-20", "Parc National", "Cohésion")
-    )
+fun EventsScreen() {
+    var events by remember { mutableStateOf<List<EventDto>>(emptyList()) }
+    var selectedEvent by remember { mutableStateOf<EventDto?>(null) }
+    val coroutineScope = rememberCoroutineScope()
 
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        items(events) { event ->
-            EventItem(event = event, onClick = {
-                    navController.navigate("eventDetail/${event.id}")
-            })
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            val response = RetrofitClient.instance.getEvents()
+            if (response.isSuccessful) {
+                events = response.body() ?: emptyList()
+            }
+        }
+    }
+
+    if (selectedEvent != null) {
+        EventDetailScreen(event = selectedEvent!!) {
+            selectedEvent = null
+        }
+    } else {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            items(events) { event ->
+                EventItem(event = event, onClick = {
+                    selectedEvent = event
+                })
+            }
         }
     }
 }
 
+
 @Composable
-fun EventItem(event: Event, onClick: () -> Unit) {
+fun EventItem(event: EventDto, onClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(4.dp),
@@ -59,3 +79,4 @@ fun EventItem(event: Event, onClick: () -> Unit) {
         }
     }
 }
+
