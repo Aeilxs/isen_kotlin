@@ -9,7 +9,11 @@
     <string name="home_screen_title">Home</string>
     <string name="event_screen_title">Events</string>
     <string name="history_screen_title">History</string>
-    <!-- EventScreen -->
+    <!-- EventDetailScreen -->
+    <string name="event_screen_date_label">Date</string>
+    <string name="event_screen_location_label">Location</string>
+    <string name="event_screen_description_label">Description</string>
+    <string name="event_screen_category_label">Category</string>
     <!-- HistoryScreen -->
     <!-- HomeScreen -->
 </resources>
