@@ -1,6 +1,15 @@
 <resources>
+    <!-- HomeScreen -->
     <string name="app_name">Smart Companion</string>
     <string name="isen_logo_content_description">Isen Logo</string>
     <string name="send_button_content_description">Send Button</string>
     <string name="text_field_label">Type something …</string>
+    <string name="toast_message">Message sent successfully</string>
+    <!-- BottomNavBar-->
+    <string name="home_screen_title">Home</string>
+    <string name="event_screen_title">Events</string>
+    <string name="history_screen_title">History</string>
+    <!-- EventScreen -->
+    <!-- HistoryScreen -->
+    <!-- HomeScreen -->
 </resources>
