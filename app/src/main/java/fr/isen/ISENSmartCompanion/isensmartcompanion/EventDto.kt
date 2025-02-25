@@ -1,6 +1,6 @@
 package fr.isen.ISENSmartCompanion.isensmartcompanion.model
 
-data class Event(
+data class EventDto(
     val id: Int,
     val title: String,
     val description: String,

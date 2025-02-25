@@ -18,14 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import fr.isen.ISENSmartCompanion.isensmartcompanion.model.Event
+import fr.isen.ISENSmartCompanion.isensmartcompanion.model.EventDto
 
 @Composable
 fun EventsScreen(navController: NavController) {
     val events = listOf(
-        Event(1, "Soirée BDE", "Une soirée animée par le BDE", "2025-03-01", "Campus ISEN", "Fête"),
-        Event(2, "Gala annuel", "Le grand gala de fin d'année", "2025-06-15", "Salle des fêtes", "Gala"),
-        Event(3, "Journée de cohésion", "Activités en plein air", "2025-04-20", "Parc National", "Cohésion")
+        EventDto(1, "Soirée BDE", "Une soirée animée par le BDE", "2025-03-01", "Campus ISEN", "Fête"),
+        EventDto(2, "Gala annuel", "Le grand gala de fin d'année", "2025-06-15", "Salle des fêtes", "Gala"),
+        EventDto(3, "Journée de cohésion", "Activités en plein air", "2025-04-20", "Parc National", "Cohésion")
     )
 
     LazyColumn(
@@ -42,7 +42,7 @@ fun EventsScreen(navController: NavController) {
 }
 
 @Composable
-fun EventItem(event: Event, onClick: () -> Unit) {
+fun EventItem(event: EventDto, onClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(4.dp),

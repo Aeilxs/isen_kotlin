@@ -15,10 +15,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import fr.isen.ISENSmartCompanion.isensmartcompanion.model.Event
+import fr.isen.ISENSmartCompanion.isensmartcompanion.model.EventDto
 
 @Composable
-fun EventDetailScreen(event: Event) {
+fun EventDetailScreen(event: EventDto) {
     val ctx = LocalContext.current
     Column(
         modifier = Modifier

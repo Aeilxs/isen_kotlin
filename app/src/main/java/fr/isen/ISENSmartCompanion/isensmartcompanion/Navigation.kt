@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import fr.isen.ISENSmartCompanion.isensmartcompanion.model.Event
+import fr.isen.ISENSmartCompanion.isensmartcompanion.model.EventDto
 
 @Composable
 fun AppNavigation(modifier: Modifier = Modifier) {
@@ -31,9 +31,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
 
                 // On crée une liste fictive d'événements pour récupérer les détails
                 val events = listOf(
-                    Event(1, "Soirée BDE", "Une soirée animée par le BDE", "2025-03-01", "Campus ISEN", "Fête"),
-                    Event(2, "Gala annuel", "Le grand gala de fin d'année", "2025-06-15", "Salle des fêtes", "Gala"),
-                    Event(3, "Journée de cohésion", "Activités en plein air pour tous", "2025-04-20", "Parc National", "Cohésion")
+                    EventDto(1, "Soirée BDE", "Une soirée animée par le BDE", "2025-03-01", "Campus ISEN", "Fête"),
+                    EventDto(2, "Gala annuel", "Le grand gala de fin d'année", "2025-06-15", "Salle des fêtes", "Gala"),
+                    EventDto(3, "Journée de cohésion", "Activités en plein air pour tous", "2025-04-20", "Parc National", "Cohésion")
                 )
 
                 val event = events.find { it.id == eventId }
