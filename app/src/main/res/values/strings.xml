@@ -14,7 +14,10 @@
     <string name="event_screen_location_label">Location</string>
     <string name="event_screen_description_label">Description</string>
     <string name="event_screen_category_label">Category</string>
-    <string name="event_screen_back_button_content_description">Return Button</string>"
+    <string name="event_screen_back_button_content_description">Return Button</string>
+    <string name="event_screen_subscribe_btn_content_description">Subscribe Button</string>
+    <string name="event_screen_unsubscribe_btn_content_description">Unsubscribe Button</string>
+    event_screen_back_button_content_description
     <!-- HistoryScreen -->
     <!-- HomeScreen -->
 </resources>
